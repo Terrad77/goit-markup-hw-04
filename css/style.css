@@ -13,6 +13,7 @@ p {
     margin: 0px;
 }
 img {
+    /* прибираємо дефолтні margin-bottom зображенням */
     display: block;
     max-width: 100%;
 }
@@ -42,12 +43,15 @@ body {
 /* 4. задамо flex-grow (керує пропорціями елементів один до одного), main займе все вільне місце на головній осі, відсуваючи «футер» у її кінець, вниз. */
 /* main {flex-grow: 1;} */
 
-ul {
+ul, ol {
+    /* прибираємо дефолтні маркери та відступи спискам */
     list-style-type: none;
     margin: 0px;
     padding-left: 0px;
 } 
+    
 a {text-decoration: none;} /*убрать подчеркивание всем ссылкам*/
+
 h1 {
     color: #FFFFFF;
     font-weight: bold; 
@@ -82,8 +86,10 @@ h3 {
 
 .header-page {
     background: #FFF;    
-    height: 72px; 
-    border-bottom: 1px solid #e7e9fc
+    /* height: 72px;  */
+    border-bottom: 1px solid #e7e9fc;
+    display: flex;
+    align-items: center;
 }
 .logo {
     font-family: 'Raleway', sans-serif;
@@ -97,6 +103,7 @@ h3 {
     color: #4D5AE5;    
     /*только для header*/
     margin-right: 76px;
+    display: flex;
 }
 .word-studio {color: #2E2F42;}
 .site-nav {
@@ -104,7 +111,21 @@ h3 {
     font-weight: 500;
     font-size: 16px; 
     line-height: 1.5; 
-    letter-spacing: 0.02em;             
+    letter-spacing: 0.02em; 
+    display:block;   
+}
+#studio::after {
+    
+    width: 48px;
+    height: 4px;
+    content: '';    
+    border-radius: 2px;
+    background:  #404BBF;
+
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    
 }
 .site-nav:hover,
 .site-nav:focus {
@@ -132,16 +153,21 @@ h3 {
     display: flex;
     align-items: center;    
 }
-.header-page .menu-list a {
+/* .header-page .menu-list a {
     padding-top: 24px;
     padding-bottom: 24px;
-}
-.header-page address a {
+} */
+/* .header-page address a {
     padding-top: 24px;
     padding-bottom: 24px;
+} */
+.menu-list {
+    position: relative;
+    padding: 24px 0;
 }
 .menu-list,
 .address-list {
+    
     display: flex;
     gap: 40px;
 }
@@ -149,12 +175,21 @@ h3 {
 /* Hero image sect1 */
 
 .hero {
-    background-color: #2E2F42;
-    height: 600px;
-/* для визначення відступів всередині секції*/
-/*аналоги: padding: 188px 0 188px; 
-або padding-top: 188px; + padding-bottom: 188px; */
+   background-color: #2E2F42;
+   height: 600px;
+/* задамо відступи всередині секції, або
+аналоги: padding: 188px 0 188px; 
+padding-top: 188px; + padding-bottom: 188px; */
     padding: 188px 0;
+    /* background: background-color background-image background-repeat background-position background-attachment background-size */
+
+   background-image: linear-gradient(rgba(46, 47, 66, 0.7),
+   rgba(46, 47, 66, 0.7)), 
+   url(/images/hero/people-office.jpg);
+   background-repeat: no-repeat;
+   /*background-position: 50% 50%; */
+   background-position: center; 
+   background-size: cover;
 }
 .hero-title {
     font-size: 56px; 
@@ -194,7 +229,7 @@ h3 {
 /* Features sect2 */
 
 .features {
-    height: 344px;
+    /* height: 344px; */
     /*для визначення відступів всередині секції (можна використовувати аналог padding: 120px 0 120px або padding-top: 120px; та padding-bottom: 120px;*/
     padding: 120px 0;    
 }
@@ -221,13 +256,24 @@ h3 {
 .feature-item {
     width: calc((100% - 3 * 24px) / 4);
 }
+.bg-icons-features {
+    width: 264px;
+    height: 112px;
+    margin-bottom: 8px;
+    border-radius: 4px;
+    border: 1px solid #8E8F99;
+    background: #F4F4FD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .feature-name {
     font-weight: 500;
     font-size: 20px;
     line-height: 1.2;
     letter-spacing: 0.02em;
     color: #2e2f42;
-    margin-bottom: 8px; /* відступу між заголовком і параграфом */ 
+    margin-bottom: 8px; /* відступ між заголовком і параграфом */ 
     text-align: left;
 }
 .feature-description {
@@ -235,7 +281,7 @@ h3 {
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: #434455;
-    text-align: left;
+    margin-bottom: 8px; /* відступ між параграфом i списком */
 }
 
 /* Our Team sect3 */
@@ -266,16 +312,18 @@ h3 {
     display: inline-flex;    
     flex-direction: column;
     justify-content: center;
-    align-items: center;   
+    align-items: center;
+    /* ширина карток, або аналоги:
+    width: calc((100% - 72px) / 4);
+    flex-basis: calc((100% - 3 * 24px) / 4);
+    flex-basis: calc((100% - 72px) / 4); */   
     width: calc((100% - 3 * 24px) / 4);
-    /* аналоги: */
-    /* width: calc((100% - 72px) / 4); */
-    /* flex-basis: calc((100% - 3 * 24px) / 4); */
-    /* flex-basis: calc((100% - 72px) / 4); */
-
     /* для визначення заокруглень внизу блока */
-    border-radius: 0px 0px 4px 4px;    
-    box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
+    border-radius: 0px 0px 4px 4px; 
+    /* тінь у карток    */
+    box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08),
+    0px 1px 1px 0px rgba(46, 47, 66, 0.16),
+    0px 1px 6px 0px rgba(46, 47, 66, 0.08);    
 }
 .card img {
     height: 100%;
@@ -286,9 +334,31 @@ h3 {
     display: flex;
     flex-direction: column;    
     align-items: center;
-    /* відступи від краю контейнера (аналог: padding: 32px 0 32px або
-     padding-top: 32px; та padding-bottom: 32px; ) */
+    /* відступи від краю контейнера (аналог: padding: 32px 0 32px або padding-top: 32px; та padding-bottom: 32px; ) */
     padding: 32px 0;
+}
+.card-list-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+.bg-card-icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4D5AE5;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition-property: background-color;
+}
+.card:hover .bg-card-icons,
+.card:focus .bg-card-icons {
+    background-color: #404BBF;
+}
+.card-icons {    
+    fill:#F4F4FD;
 }
 
 /* Our Portfolio sect4 */
@@ -302,25 +372,46 @@ h3 {
 .project-list {
     /* Make a flex container */
     display: flex;
-     /* Make a flex container multiline */
-    /* для переносу елементів списку на новий рядок якщо їм не вистачає місця в попередньому */
-    flex-wrap: wrap;
-    /* Set gap between rows and columns */   
-    /* padding-top: 72px; */
+     /* Make a flex container multiline - для переносу елементів списку на новий рядок якщо їм не вистачає місця в попередньому */
+    flex-wrap: wrap;    
 
     /* Для списку в класі заданий стиль column-gap: 24px;
-для визначення горизонтальних відступів між пунктами списку (можна використовувати margin-right: 24px для тега li у класі, для кожного третього li використовуємо (.project-list:nth-child(an + b); margin-right: 0;) для обнулення відступів) */
-
+для визначення горизонтальних відступів між пунктами списку (можна використовувати margin-right: 24px для тега li у класі, для кожного третього li використовуємо (.project-list:nth-child(2n + 1); margin-right: 0;) для обнулення відступів) */
+/* Set gap between rows and columns */
     column-gap: 24px;
     row-gap: 48px;
 }    
 .project {   
-    width: calc(100% - 48px)/3;
+    width: calc(100% - 24px*2)/3;
 }
 .project-content {
     border: 1px solid #e7e9fc;
     padding: 32px 16px;
     border-top: none;
+}
+
+.box {
+    position: relative;
+    overflow: hidden;
+}
+.box:hover .overlay {
+    transform: translateY(0);
+    
+}
+.overlay {
+    padding-top: 40px;
+    padding-left:  32px;
+    padding-right: 32px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    transition: transform 250ms ease-in-out;
+    background-color: #4D5AE5;
+    color: #F4F4FD;
+    align-items: center;
 }
 
 /* Footer */
@@ -334,11 +425,16 @@ h3 {
     align-items: center;
     justify-items: center;
 }
+.footer-wrapper {
+    display: flex;
+    gap: 120px;
+    
+}
 .footer .logo {
      /* only for footer    */
    margin-right: 0;
    display: inline-block;   
-   margin-bottom: 16px;
+   margin-bottom: 17.5px;
 }
 .footer .word-studio {
     color: #F4F4FD;
@@ -348,7 +444,19 @@ h3 {
    color: #F4F4FD;
    letter-spacing: 0.02em;
    display: flex;
-   max-width: 264px;
-   height: 72px;    
-   margin-top: 17.5px;
+   max-width: 264px;   
+}
+.footer-con-icons {
+    display: inline-block;
+    align-items: center;
+    justify-items:left;
+}
+.footer-con-icons:hover .bg-card-icons,
+.footer-con-icons:focus .bg-card-icons {
+    background-color: #31D0AA;
+}
+.title-icons {
+    font-weight: 500;
+    margin-bottom: 16px;
+
 }
