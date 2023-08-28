@@ -168,19 +168,12 @@ h3 {
 /* Hero image sect1 */
 
 .hero {
-   background-color: #2E2F42;
-   /* height: 600px; */
-/* задамо відступи всередині секції, або
-аналоги: padding: 188px 0 188px; 
-padding-top: 188px; + padding-bottom: 188px; */
-    padding: 188px 0;
-    /* background: background-color background-image background-repeat background-position background-attachment background-size */
-
+   background-color: #2E2F42;   
+   padding: 188px 0;
    background-image: linear-gradient(rgba(46, 47, 66, 0.7),
    rgba(46, 47, 66, 0.7)), 
-   url(./images/hero/people-office.jpg);
+   url(../images/hero/people-office.jpg);
    background-repeat: no-repeat;
-   /*background-position: 50% 50%; */
    background-position: center; 
    background-size: cover;
 }
