@@ -171,7 +171,8 @@ h3 {
    background-color: #2E2F42;   
    padding: 188px 0;
    background-image: linear-gradient(rgba(46, 47, 66, 0.7),
-   rgba(46, 47, 66, 0.7)), 
+   rgba(46, 47, 66, 0.7)),
+   /* путь относительно файла style.scc  */
    url(../images/hero/people-office.jpg);
    background-repeat: no-repeat;
    background-position: center; 
@@ -253,7 +254,9 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
+
 .feature-name {
     font-weight: 500;
     font-size: 20px;
@@ -321,14 +324,12 @@ h3 {
 .card-content {
     display: flex;
     flex-direction: column;    
-    align-items: center;
-    /* відступи від краю контейнера (аналог: padding: 32px 0 32px або padding-top: 32px; та padding-bottom: 32px; ) */
+    align-items: center;    
     padding: 32px 0;
 }
 .card-list-icons {
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
+    justify-content: center;    
     gap: 24px;
 }
 .size-icons {
@@ -348,12 +349,29 @@ h3 {
    .link:hover,
    .link:focus {
     background-color: #404BBF;
+    /* filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3)); */
 }
 
 .card-icons {    
     fill:#F4F4FD;
+    
 }
 
+/* анимация иконки астронавта */
+.astronaut-stars {
+    fill:#4D5AE5;
+    transition: fill 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.feature-item:last-child .bg-icons-features:hover .astronaut-stars,
+.feature-item:last-child .bg-icons-features:focus .astronaut-stars { 
+    fill: rgb(252, 141, 7);    
+/* фильтр добавляет тень вокруг самого изображения */
+    filter: drop-shadow(10px -5px 5px rgba(252, 141, 7, 0.3));   
+}
+.feature-item:last-child .bg-icons-features:hover,
+.feature-item:last-child .bg-icons-features:focus {
+
+}
 /* Our Portfolio sect4 */
 
 #portfolio {
